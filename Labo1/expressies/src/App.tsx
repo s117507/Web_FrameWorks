@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+const App = () => {
 
-function App() {
-  const [count, setCount] = useState(0)
+  const random : number = Math.random();
+  const getal1: number = Math.floor(Math.random()* 10);
+  const getal2: number = Math.floor(Math.random()* 10);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+  function add(a: number, b: number): number {
+    return a + b;
+  }
 
-export default App
+    function multiply(a: number, b: number): number {
+    return a * b;
+  }
+
+
+return (
+<div>
+<h1>Labo 1</h1>
+<p>Random waarde: {random}</p>
+<p>Getal 1: {getal1}</p>
+<p>Getal 2: {getal2}</p>
+{ random < 0.5 ? (
+  <p>Som: {add(getal1, getal2)}</p>
+) : (
+  <p>Vermenigvuldiging: {multiply(getal1, getal2)}</p>
+)}
+</div>
+);
+};
+
+export default App;
