@@ -1,35 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styles from "./App.module.css";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <div className={styles.f_card}>
+        <div className={styles.header}>
+          <div className={styles.options}>
+            <i className="fa fa-chevron-down"></i>
+          </div>
+          <img
+            className={styles.co_logo}
+            src="https://raw.githubusercontent.com/similonap/json/refs/heads/master/images/social-cat.png"
+          />
+          <div className={styles.co_name}>
+            <a href="#">Purrfectly Pawsome</a>
+          </div>
+          <div className={styles.time}>
+            <a href="#">Just 9 lives ago</a> · <i className="fa fa-globe"></i>
+          </div>
+        </div>
+        <div className={styles.content}>
+          <p>
+            Do you know why cats are excellent programmers? Because they always purr-fect their code! 😸
+          </p>
+        </div>
 
-export default App
+        <div className={styles.reference}>
+          <img className={styles.reference_thumb} src="https://raw.githubusercontent.com/similonap/json/refs/heads/master/images/social-hammock.png" />
+          <div className={styles.reference_content}>
+            <div className={styles.reference_title}>
+              The Ultimate Guide to Napping Like a Cat | CatNapTips
+            </div>
+            <div className={styles.reference_subtitle}>
+              Learn the art of napping, feline style! Just follow these simple tips.
+            </div>
+            <div className={styles.reference_font}>catnaptips.com</div>
+          </div>
+        </div>
+        <div className={styles.social}>
+          <div className={styles.social_content}></div>
+          <div className={styles.social_buttons}>
+            <span>
+              <i className="fa fa-thumbs-up"></i>Paws Up!
+            </span>
+            <span>
+              <i className="fa fa-comment"></i>Meow-back
+            </span>
+            <span>
+              <i className="fa fa-share"></i>Share the Cat-titude
+            </span>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default App;
