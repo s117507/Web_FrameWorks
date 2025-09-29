@@ -6,6 +6,8 @@ let slotImages = [
   new URL('./assets/watermelon.png', import.meta.url).href
 ]
 
+/* Require word niet meer gesupport, gebruik nieuwe handeling new URL('Path', import.meta.url).href */
+
 function App() {
 
   let slot1 = Math.floor(Math.random() * 5);
