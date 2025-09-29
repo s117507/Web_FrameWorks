@@ -1,18 +1,16 @@
-import React from "react";
-
 let slotImages = [
   new URL('./assets/cherries.png' , import.meta.url).href,
-  new URL("./assets/diamond.png", import.meta.url).href,
-  new URL("./assets/lemon.png", import.meta.url).href,
-  new URL("./assets/seven.png", import.meta.url).href,
-  new URL("./assets/watermelon.png").href,
+  new URL('./assets/diamond.png', import.meta.url).href,
+  new URL('./assets/lemon.png', import.meta.url).href,
+  new URL('./assets/seven.png', import.meta.url).href,
+  new URL('./assets/watermelon.png', import.meta.url).href
 ]
 
 function App() {
 
-  let slot1 = Math.floor(Math.random() * 6);
-  let slot2 = Math.floor(Math.random() * 6);
-  let slot3 = Math.floor(Math.random() * 6);
+  let slot1 = Math.floor(Math.random() * 5);
+  let slot2 = Math.floor(Math.random() * 5);
+  let slot3 = Math.floor(Math.random() * 5);
 
   let winning = slot1 == slot2 && slot2 == slot3;
 
@@ -27,9 +25,9 @@ function App() {
 
     {winning? <p>Je hebt gewonnen!</p> : <p>Je hebt verloren!</p>}
 
-    <img src="{slotImages[slot1]}" alt="slot1" width="100" />
-    <img src="{slotImages[slot2]}" alt="slot1" width="100" />
-    <img src="{slotImages[slot3]}" alt="slot1" width="100" />
+    <img src={slotImages[slot1]} alt="slot1" width="100" />
+    <img src={slotImages[slot2]} alt="slot1" width="100" />
+    <img src={slotImages[slot3]} alt="slot1" width="100" />
     </div>
   )
 }
