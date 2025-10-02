@@ -19,12 +19,8 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
-    rules: {
-      // Turn it off (or set to "warn")
+    rules : {
       'prefer-const': 'off',
-      // optional: also silence "no-var" if you ever use var
-      // 'no-var': 'off',
-    },
+    }
   },
-  
 ])
