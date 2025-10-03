@@ -1,45 +1,45 @@
-let slotImages = [
-  new URL('./assets/cherries.png' , import.meta.url).href,
-  new URL('./assets/diamond.png', import.meta.url).href,
-  new URL('./assets/lemon.png', import.meta.url).href,
-  new URL('./assets/seven.png', import.meta.url).href,
-  new URL('./assets/watermelon.png', import.meta.url).href
-]
+// App.tsx
 
-/* Require word niet meer gesupport, gebruik nieuwe handeling new URL('Path', import.meta.url).href */
+const slotImages: string[] = [
+  new URL("./assets/cherries.png", import.meta.url).href,
+  new URL("./assets/diamond.png", import.meta.url).href,
+  new URL("./assets/lemon.png", import.meta.url).href,
+  new URL("./assets/seven.png", import.meta.url).href,
+  new URL("./assets/watermelon.png", import.meta.url).href,
+];
 
-const getRandomSlots = (numberOfSlots: number) => {
-  let slots : number[] = [];
-  for (let index = 0; index <numberOfSlots; index++) {
-    slots.push(Math.floor(Math.random()*5))
+const NUMBER_OF_SLOTS = 3;
+
+function getRandomSlots(count: number): number[] {
+  const slots: number[] = [];
+  for (let i = 0; i < count; i++) {
+    slots.push(Math.floor(Math.random() * slotImages.length));
   }
-  return slots
+  return slots;
+}
+
+function isWinning(slots: number[]): boolean {
+  for (let i = 1; i < slots.length; i++) {
+    if (slots[i] !== slots[0]) return false;
+  }
+  return true;
 }
 
 function App() {
-
-  let slot1 = Math.floor(Math.random() * 5);
-  let slot2 = Math.floor(Math.random() * 5);
-  let slot3 = Math.floor(Math.random() * 5);
-
-  let slots = getRandomSlots(3);
-
-  let winning = slot1 == slot2 && slot2 == slot3;
+  const slots = getRandomSlots(NUMBER_OF_SLOTS);
+  const winning = isWinning(slots);
 
   return (
     <div>
-    <h1>SLOTS</h1>
-    {slotImages.map((images) => (
-      <img src={images} alt="slot" width="100"/>
-    ))}
+      <h1>SLOTS</h1>
 
-    {winning? <p>Je hebt gewonnen!</p> : <p>Je hebt verloren!</p>}
+      {slots.map((slot, i) => (
+        <img src={slotImages[slot]} alt={"slot " + (i + 1)} width={100} />
+      ))}
 
-    <img src={slotImages[slot1]} alt="slot1" width="100" />
-    <img src={slotImages[slot2]} alt="slot1" width="100" />
-    <img src={slotImages[slot3]} alt="slot1" width="100" />
+      <p>{winning ? "Je hebt gewonnen!" : "Je hebt verloren!"}</p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
