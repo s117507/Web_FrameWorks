@@ -1,5 +1,3 @@
-// App.tsx
-
 const slotImages: string[] = [
   new URL("./assets/cherries.png", import.meta.url).href,
   new URL("./assets/diamond.png", import.meta.url).href,
