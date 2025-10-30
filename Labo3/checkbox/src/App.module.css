@@ -1,0 +1,27 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.checkboxGrid {
+  display: grid;
+  gap: 4px;
+  margin: auto;
+  min-height: 100vh;
+  min-width: 100vw;
+  align-content: center;
+  justify-content: center;
+}
+
+
+.checkboxGrid input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
