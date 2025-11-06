@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {createContext, useContext, useState} from 'react'
 
-function App() {
-  const [count, setCount] = useState(0)
+interface TextContext {
+    text: string;
+}
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+const TextContent = createContext<TextContext>({text: "Knock, Knock, Neo"})
+const FourthLine = () => {
+    const {text} = useContext(TextContent);
+
+    return(
+    <><p>{text}</p></>
+)};
+const ThirdLine = () => <><p>Follow the white rabbit.</p><FourthLine/></>;
+const SecondLine = () => <><p>The matrix has you...</p><ThirdLine/></>;
+const FirstLine = () => <><p>Wake Up, Neo...</p><SecondLine/></>
+
+const App = () => {
+    const [text, setText] = useState("Knock, Knock, Neo");
+    return (
+        <TextContent.Provider value={{text: text}}>
+            <input type="text" value={text} onChange={(e) => setText(e.target.value)}/>
+            <div style={{backgroundColor: "black", color: "#4AF626", display: "flex", flexDirection: "column", padding: 20}}>
+                <FirstLine/>
+            </div>
+        </TextContent.Provider>
+    )
 }
 
 export default App
