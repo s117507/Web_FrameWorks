@@ -1,0 +1,20 @@
+.contactForm {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+
+
+}
+
+.contactForm button {
+  grid-column: 1/ span 2;
+}
+
+.confirmation {
+  background-color: green;
+  border: 1px solid darkgreen;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px;
+  grid-row-start: 6;
+  grid-column: 1 / span 2;
+}
