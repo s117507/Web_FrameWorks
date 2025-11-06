@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./App.module.css";
 
-interface Product {
+ export interface Product {
     name: string;
     price: number;
     inStock: boolean;
 }
 
-interface ProductProps {
+ export interface ProductProps {
     product : Product;
 }
 

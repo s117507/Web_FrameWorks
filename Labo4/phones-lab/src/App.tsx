@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Product, ProductItem } from "./Product";
+import type {Product} from "./product.tsx";
+import {ProductItem} from "./product.tsx";
 import styles from "./App.module.css";
 
 function App() {
@@ -28,34 +29,42 @@ function App() {
     };
 
   return (
-    <div className={styles.App}>
-        <h1>Product Inventory</h1>
-        <label className={styles.formLabel}>
-            Product name:
-                <input type="text"
-                       value={productName}
-                       placeholder="product name"
-                       onChange={(e) => setProductName(e.target.value)}
-                       />
-        </label>
-        <label className={styles.formLabel}>
-            Price:
-            <input
-            type="number"
-            value={price}
-            placeholder="price"
-            onChange={(e) => setPrice(Number(e.target.value))}
-            />
-        </label>
-        <label className={styles.formLabel}>
-            In Stock?
-            <input
-            type="checkbox"
-            checked={inStock}
-            onChange={(e) => setInStock(e.target.value)}
-            />
-        </label>
-    </div>
+      <div className={styles.App}>
+          <h1>Product Inventory</h1>
+          <label className={styles.formLabel}>
+              Product name:
+              <input type="text"
+                     value={productName}
+                     placeholder="product name"
+                     onChange={(e) => setProductName(e.target.value)}
+              />
+          </label>
+          <label className={styles.formLabel}>
+              Price:
+              <input
+                  type="number"
+                  value={price}
+                  placeholder="price"
+                  onChange={(e) => setPrice(Number(e.target.value))}
+              />
+          </label>
+          <label className={styles.formLabel}>
+              In stock?
+              <input
+                  type="checkbox"
+                  checked={inStock}
+                  onChange={(e) => setInStock(e.target.checked)}
+              />
+          </label>
+          <button className={styles.button} onClick={addProduct}>
+              Add product
+          </button>
+          <ul className={styles.productList}>
+              {products.map((product, index) => (
+                  <ProductItem product={product} key={index}/>
+              ))}
+          </ul>
+      </div>
   )
 }
 
